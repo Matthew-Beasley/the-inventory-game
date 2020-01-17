@@ -4,10 +4,11 @@ import './App.css';
 
 
 function App() {
+
   const { products } = data;
   const [items, setProducts] = useState(products)
 
-  const add = (id) => { 
+  const add = (id) => {
     items.forEach(item => {
       if (item.id === id && item.numberInStock < 10) {
         item.numberInStock++;
@@ -18,7 +19,7 @@ function App() {
 
 
   const removeElement = (array, element) => {
-    for (let i = 0; i < array.length; i++){
+    for (let i = 0; i < array.length; i++) {
       if (array[i].id === element.id) {
         array.splice(i, 1);
       }
@@ -26,8 +27,8 @@ function App() {
     return array;
   }
 
-  
-  const remove = (id) => { 
+
+  const remove = (id) => {
     items.forEach(item => {
       if (item.id === id && item.numberInStock > 0) {
         item.numberInStock--;
@@ -37,8 +38,7 @@ function App() {
       }
     });
     setProducts([...items])
-  } 
-
+  }
 
   return (
     <div className="App">
