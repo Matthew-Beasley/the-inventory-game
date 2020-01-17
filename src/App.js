@@ -15,11 +15,25 @@ function App() {
     });
     setProducts([...items])
   }
+
+
+  const removeElement = (array, element) => {
+    for (let i = 0; i < array.length; i++){
+      if (array[i].id === element.id) {
+        array.splice(i, 1);
+      }
+    }
+    return array;
+  }
+
   
   const remove = (id) => { 
     items.forEach(item => {
       if (item.id === id && item.numberInStock > 0) {
         item.numberInStock--;
+        if (item.numberInStock === 0) {
+          removeElement(items, item)
+        }
       }
     });
     setProducts([...items])
